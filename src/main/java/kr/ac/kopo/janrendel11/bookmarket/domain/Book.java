@@ -21,5 +21,4 @@ public class Book {
     private String releaseDate; // 출판일
     private String condition; // 신규도서 or 중고도서 or 전자책
 
-
 }

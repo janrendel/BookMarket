@@ -30,15 +30,19 @@ public class BookRepositoryImpl implements BookRepository {
 
         Book book2 = new Book();
         book2.setBookId("isbn0002");
-        book2.setName("1984");
-        book2.setUnitPrice(BigDecimal.valueOf(11000));
-        book2.setAuthor("조지오웰");
-        book2.setDescription("민음사에서 조지 오웰 탄생 100주년을 맞아 그의 대표작 <1984>를 새롭게 펴냈다. \n " +
-                             "'절대 권력은 절대 부패한다'는 명언을 탁월하게 형상화한 작품.");
-        book2.setPublisher("민음사");
+        book2.setName("제목");
+        book2.setUnitPrice(BigDecimal.valueOf(99999));
+        book2.setAuthor("ㅇㅇㅇ");
+        book2.setDescription("''''''''''''''''''''''''''''''''''''''''''''''''''''''\n " +
+                             "''''''''''''''''''''''''''''''''''''''''''''''''''''''\n" +
+                             "''''''''''''''''''''''''''''''''''''''''''''''''''''''\n" +
+                             "''''''''''''''''''''''''''''''''''''''''''''''''''''''\n " +
+                             "''''''''''''''''''''''''''''''''''''''''''''''''''''''\n" +
+                             "''''''''''''''''''''''''''''''''''''''''''''''''''''''" );
+        book2.setPublisher("ㅇㅇㅇ");
         book2.setCategory("소설");
         book2.setUnitsInStock(1000);
-        book2.setReleaseDate("1949-06-08");
+        book2.setReleaseDate("2000-06-08");
         book2.setCondition("도서");
 
         Book book3 = new Book();
