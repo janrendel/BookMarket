@@ -128,4 +128,11 @@ public class BookRepositoryImpl implements BookRepository {
 
         return booksByCategory;
     }
+
+    @Override
+    public void setNewBook(Book book) {
+        listOfBooks.add(book);
+
+    }
+
 }

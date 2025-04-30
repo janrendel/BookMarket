@@ -3,9 +3,9 @@ package kr.ac.kopo.janrendel11.bookmarket.controller;
 import kr.ac.kopo.janrendel11.bookmarket.domain.Book;
 import kr.ac.kopo.janrendel11.bookmarket.srvice.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -54,5 +54,24 @@ public class BookController {
         Set<Book> booksByFilter = bookService.getBookListByFilter(bookFilter);
         model.addAttribute("bookList", booksByFilter);
         return "books";
+    }
+
+    @GetMapping("/add")
+    public String requestAddBookForm() {
+        return "addBook";
+    }
+    @PostMapping("/add")
+    public String requestSubmitNewBook(@ModelAttribute("book") Book book) {
+        bookService.addBook(book);
+        return "redirect:/books";
+    }
+    @ModelAttribute
+    public void addAtribtes(Model model) {
+        model.addAttribute("addTitle", "도서정보");
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.setAllowedFields("bookId","name","unitPrice","author","description","publisher","category","unitsInStock","releaseDate","condition");
     }
 }
