@@ -1,4 +1,4 @@
-package kr.ac.kopo.janrendel11.bookmarket.srvice;
+package kr.ac.kopo.janrendel11.bookmarket.service;
 
 import kr.ac.kopo.janrendel11.bookmarket.domain.Book;
 import org.springframework.stereotype.Service;
@@ -13,4 +13,6 @@ public interface BookService {
     List<Book> getBookListByCategory(String category);
     Set<Book> getBookListByFilter(Map<String, List<String>> bookFilter);
     void addBook(Book book);
+
+    void setNewBook(Book book);
 }

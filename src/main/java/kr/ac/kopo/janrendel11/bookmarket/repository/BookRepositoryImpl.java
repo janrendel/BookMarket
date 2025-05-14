@@ -75,13 +75,14 @@ public class BookRepositoryImpl implements BookRepository {
     public Book getBookById(String bookId) {
         Book bookInfo = null;
         for (Book book : listOfBooks) {
-            if (book != null && book.getBookId() != null && book.getBookId().equals(bookId)) {
+            if (book != null && book.getBookId()!=null && book.getBookId().equals(bookId)) {
                 bookInfo = book;
                 break;
             }
         }
-        if (bookInfo == null) {
-            throw new IllegalArgumentException("도서번호가 " + bookId + "인 해당 도서를 찾을 수 없습니다.");
+
+        if(bookInfo==null){
+            throw new IllegalArgumentException("도서번호가 "+ bookId +"인 해당 도서를 찾을 수 없습니다.");
         }
 
         return bookInfo;
@@ -96,9 +97,8 @@ public class BookRepositoryImpl implements BookRepository {
     public List<Book> getBookListByCategory(String category) {
         List<Book> booksByCategory = new ArrayList<>();
         for (Book book : listOfBooks) {
-            if (book != null && book.getCategory() != null && book.getCategory().equals(category)) {
+            if (book.getCategory()!=null && book.getCategory().equals(category)) {
                 booksByCategory.add(book);
-
             }
         }
         return booksByCategory;
@@ -110,11 +110,11 @@ public class BookRepositoryImpl implements BookRepository {
         Set<Book> booksByCategory = new HashSet<Book>();
         Set<String> booksByFilter = filter.keySet();
 
-        if (booksByFilter.contains("publisher")) {
-            for (int i = 0; i < filter.get("publisher").size(); i++) {
+        if(booksByFilter.contains("publisher")){
+            for (int i = 0; i < filter.get("publisher").size(); i++ ) {
                 String publisherName = filter.get("publisher").get(i);
                 for (Book book : listOfBooks) {
-                    if (publisherName.equalsIgnoreCase(book.getPublisher())) {
+                    if(publisherName.equalsIgnoreCase(book.getPublisher())){
                         booksByPublisher.add(book);
                     }
                 }

@@ -1,14 +1,15 @@
 package kr.ac.kopo.janrendel11.bookmarket.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import kr.ac.kopo.janrendel11.bookmarket.domain.Book;
-import kr.ac.kopo.janrendel11.bookmarket.srvice.BookService;
+import kr.ac.kopo.janrendel11.bookmarket.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -55,7 +56,7 @@ public class BookController {
     }
 
     @GetMapping("/{category}")
-    public String requestBookByCategory(@PathVariable("category") String category, Model model) {
+    public String requestBooksByCategory(@PathVariable("category")String category, Model model) {
         List<Book> booksByCategory = bookService.getBookListByCategory(category);
         model.addAttribute("bookList", booksByCategory);
         return "books";
@@ -69,12 +70,16 @@ public class BookController {
     }
 
     @GetMapping("/add")
-    public String requestAddBookForm() {
+    public String requestAddBookForm(Model model) {
+        model.addAttribute("book", new Book());
         return "addBook";
     }
 
     @PostMapping("/add")
-    public String requestSubmitNewBook(@ModelAttribute("book") Book book) {
+    public String requestSubmitNewBook(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addBook";
+        }
         MultipartFile bookImage = book.getBookImage();
         String saveName = bookImage.getOriginalFilename();
         File saveFile  = new File(fileDir + saveName);

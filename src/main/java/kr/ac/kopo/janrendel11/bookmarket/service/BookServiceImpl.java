@@ -1,11 +1,10 @@
-package kr.ac.kopo.janrendel11.bookmarket.srvice;
+package kr.ac.kopo.janrendel11.bookmarket.service;
 
 import kr.ac.kopo.janrendel11.bookmarket.domain.Book;
 import kr.ac.kopo.janrendel11.bookmarket.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.nio.channels.SelectionKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +45,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void addBook(Book book) {
+        bookRepository.setNewBook(book);
+    }
+
+    @Override
+    public void setNewBook(Book book) {
         bookRepository.setNewBook(book);
     }
 
