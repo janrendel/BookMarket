@@ -75,7 +75,7 @@ public class BookController {
 
     @PostMapping("/add")
     public String requestSubmitNewBook(@ModelAttribute("book") Book book) {
-        MultipartFile bookImage = book.getImage();
+        MultipartFile bookImage = book.getBookImage();
         String saveName = bookImage.getOriginalFilename();
         File saveFile  = new File(fileDir + saveName);
         if(bookImage != null && !bookImage.isEmpty()) {
@@ -97,12 +97,12 @@ public class BookController {
 
     @GetMapping("/download")
     public void downloadBookImage(@RequestParam("file") String paramKey, HttpServletResponse response) throws IOException {
-        File ingageFile = new File(fileDir + paramKey);
+        File imageFile = new File(fileDir + paramKey);
         response.setContentType("application/download");
-        response.setHeader("Content-Disposition", "attachment; filename=\""  + paramKey + "\"");
-        response.setContentLength((int) ingageFile.length());
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + paramKey + "\"");
+        response.setContentLength((int) imageFile.length());
         OutputStream os = response.getOutputStream();
-        FileInputStream fis = new FileInputStream(ingageFile);
+        FileInputStream fis = new FileInputStream(imageFile);
         FileCopyUtils.copy(fis, os);
         fis.close();
         os.close();

@@ -8,113 +8,113 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <main>
-        <div class="container py-4">
-            <header class="pb-3 mb-4 border-bottom">
-                <a href="/BookMarket/home" class="d-flex align_items center text-body-emphasis tex-docration-none">
-                <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                        <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-414.000000, -101.000000)" fill="#000000">
-                            <path d="M418,101 C415.791,101 414,102.791 414,105 L414,126 C414,128.209 415.885,129.313 418,130 L429,133 L429,104 C423.988,102.656 418,101 418,101 L418,101 Z M442,101 C442,101 436.212,102.594 430.951,104 L431,104 L431,133 C436.617,131.501 442,130 442,130 C444.053,129.469 446,128.209 446,126 L446,105 C446,102.791 444.209,101 442,101 L442,101 Z" id="book-album" sketch:type="MSShapeGroup">
-                            </path>
-                        </g>
+<main>
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="/BookMarket/home" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     width="32px" height="32px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                    <g>
+                        <path fill="#231F20" d="M1.59,0.805C0.59,1.562,0,2.746,0,4v48c0,1.785,1.184,3.355,2.902,3.848L28,64V8L5.098,0.152
+                            C3.895-0.188,2.594,0.051,1.59,0.805z"/>
+                        <path fill="#231F20" d="M62.41,0.805c-1.004-0.754-2.309-0.992-3.508-0.652L36,8v56l25.098-8.152C62.816,55.355,64,53.785,64,52V4
+                            C64,2.746,63.41,1.562,62.41,0.805z"/>
                     </g>
-                    </svg>
-                    <span class="fs-4">&nbsp;&nbsp;BookMarket</span>
-                </a>
-            </header>
+                </svg>
+                <span class="fs-4">&nbsp;&nbsp;BookMarket</span>
+            </a>
+        </header>
 
-            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-                <div class="container-fluid py-5">
-                    <h1 class="display-5 fw-bold">도서 등록</h1>
-                    <p class="col-md-8 fs-4">BookMarket</p>
-                </div>
+        <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">도서 등록</h1>
+                <p class="col-md-8 fs-4">BookMarket</p>
             </div>
-
-            <div class="row align-items-md-stretch">
-                <form action="/BookMarketbooks/add" method="post" enctype="multipart/form-data">
-                    <legend th:text="${addTitle}"></legend>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">도서 ID</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="bookId" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">도서명</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="name" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">가격</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="unitPrice" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">저자</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="author" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">상세정보</div>
-                        <div class="col-sm-3">
-                            <textarea name="description" cols="50" rows="2"></textarea>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">출판사</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="publisher" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">분야</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="category" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">재고량</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="unitsInStock" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">출판일</div>
-                        <div class="col-sm-3">
-                            <input type="text" name="releaseDate" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">상태</div>
-                        <div class="col-sm-3">
-                            <input type="radio" name="condition" value="New"/> 신규도서
-                            <input type="radio" name="condition" value="Old"/> 중고도서
-                            <input type="radio" name="condition" value="E-Book"/> 전자책
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <div class="col-sm-2 contol-label">도서 이미지</div>
-                            <div class="col-sm-3">
-                                <input type="file" value="이미지등록"/>
-                            </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <input type="Submit" class="btn btn-primary" value="도서등록"/>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <footer class="pt-3 mt-4 text-body-secondary border-top">
-                 <span class="text-body-secondery">&copy; 2025 BookMarket</span>
-            </footer>
         </div>
-    </main>
+
+        <div class="row align-items-md-stretch">
+            <form action="/BookMarket/books/add" method="post" enctype="multipart/form-data">
+                <legend th:text="${addTitle}"></legend>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">도서 ID</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="bookId" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">도서명</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">가격</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="unitPrice" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">저자</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="author" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">상세정보</label>
+                    <div class="col-sm-3">
+                        <textarea name="description" class="form-control" cols="50" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">출판사</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="publisher" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">분야</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="category" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">재고량</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="unitsInStock" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">출판일</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="releaseDate" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">상태</label>
+                    <div class="col-sm-3">
+                        <input type="radio" name="condition" value="New"/> 신규도서
+                        <input type="radio" name="condition" value="Old"/> 중고도서
+                        <input type="radio" name="condition" value="E-Book"/> 전자책
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 control-label">도서이미지</label>
+                    <div class="col-sm-7">
+                        <input type="file" name="bookImage" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="Submit" class="btn btn-primary" value="도서등록"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <footer class="pt-3 mt-4 text-body-secondary border-top">
+            <span class="text-body-secondary">&copy;2025 BookMarket</span>
+        </footer>
+    </div>
+</main>
 </body>
 </html>
